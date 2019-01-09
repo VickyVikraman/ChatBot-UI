@@ -1,0 +1,34 @@
+<div class="chatBox">
+  <div class="header">
+    Ask Your Question
+  </div>
+      <div class="mesgs">
+          <div class="msg_history">  
+            <div *ngFor="let msg of messages" >
+              <div class="incoming_msg" *ngIf="msg.sender=='admin'" >
+                <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="received_msg">
+                  <div class="received_withd_msg">
+                    <p>{{msg.message}}</p>
+                    <span class="time_date"> {{msg.date}}</span></div>
+                </div>
+              </div>
+              <div class="outgoing_msg" *ngIf="msg.sender == 'user'">
+                  <div class="sent_msg">
+                    <p>{{msg.message}}</p>
+                    <span class="time_date">{{msg.date}}</span> 
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="type_msg">
+            <form (submit)="sendMessage()">
+            <div class="input_msg_write">
+              <input type="text" class="write_msg"  [(ngModel)]="message" name="message" placeholder="Type Your Question" />
+              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+          </form>
+          </div>
+        </div>
+
+</div>
